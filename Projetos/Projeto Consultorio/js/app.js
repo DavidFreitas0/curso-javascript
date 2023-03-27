@@ -1,0 +1,1 @@
+document.querySelector("#prioridade").addEventListener("click", chamar);

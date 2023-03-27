@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fluxo de Gotas</title>
+        <meta charset="UTF-8">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                color: rgb(0, 0, 0);
+                font-family: sans-serif;
+            }
+            body{
+                background-color: rgb(207, 207, 207);
+            }
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 90%;
+                margin: 40px auto;
+            }
+            .botao-gotas{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 15px;
+                font-weight: bold;
+                border: solid 1px;
+                box-shadow: 5px 5px 25px gray;
+                border-radius: 50%;
+                width: 35px;
+                height: 35px;
+                color: rgb(255, 255, 255);
+                background-color: #004177;
+                padding: 5%;
+                margin-top: 20px;
+                margin-bottom: 25px;
+                text-decoration: none;
+                text-align: center;
+                text-transform: uppercase;
+            }
+            .botao-gotas:hover {
+                background-color: #fdfdfd;
+                color: rgb(0, 0, 0);
+                transition: 500ms;
+            }
+            .container h4{
+                font-weight: normal;
+
+            }
+            .resultadoGotas {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                border: 1px solid white;
+                width: 20%;
+                height: 60px;
+                padding: 10px;
+                border-radius: 20px;
+                box-shadow: 5px 5px 25px gray;
+                background-color: #004177;
+                margin-top: -3%;
+            }
+            .resultadoGotas h3{
+                font-weight: bold;
+                font-size: medium;
+                color: white;
+            }
+            .resultadoGotas span{
+                font-weight: bold;
+                color: white;
+            }
+            .resultadoMl {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                border: 1px solid rgb(255, 255, 255);
+                width: 20%;
+                height: 60px;
+                padding: 10px;
+                border-radius: 20px;
+                box-shadow: 5px 5px 25px gray;
+                background-color: #004177;
+                color: white;
+            }
+            .resultadoMl h3{
+                font-weight: bold;
+                font-size: medium;
+                color: white;
+            }
+            .resultadoMl span{
+                font-weight: bold;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Fluxo de Gotas</h1>
+            <h4>Pressione sempre que uma gota cair</h4>
+            <button class="botao-gotas" id="gotas">Pressione Aqui</button>
+            <h4><b>Resultado : </b></h4>
+            <br/>
+        </div>
+        <div class="resultadoGotas">
+            <h3>Gotas Por Minuto : </h3>
+            <span id="gotasPorMin"></span>
+        </div>
+            <br/>
+        <div class="resultadoMl">
+            <h3>ML Por Minuto : </h3>
+            <span id="mlPorMin"></span>
+        </div>
+
+            <script type="text/javascript">
+                let gotasTimestamp = [];
+                let deltas = [];
+                let mediaTempoGota = 0;
+                let mlPorMin = 0;
+                let gttsPorMin = 0;
+                let total = 0;
+
+                function gota() {
+                    if (gotasTimestamp.length == 3) {
+                        calcularDeltas();
+                        calcularValores();
+                        gotasTimestamp = [];
+                        deltas = [];
+                        mediaTempoGota = 0;
+                        mlPorMin = 0;
+                        gttsPorMin = 0;
+                        total = 0;
+                    } else {
+                        gotasTimestamp.push(+new Date());
+                    }
+                }
+                
+                function calcularDeltas() {
+                    for (let i = 1; i < gotasTimestamp.length; i++) {
+                        deltas.push(gotasTimestamp[i] - gotasTimestamp[i - 1]);
+                    }
+                    console.log(deltas);
+                    for (let i = 0; i < deltas.length; i++) {
+                        total += deltas[i];
+                    }
+                    mediaTempoGota = total / deltas.length;
+                    console.log(mediaTempoGota);
+                }
+                function calcularValores() {
+                    let gotasPorMin = Math.floor((60*1000) / mediaTempoGota);
+                    mlPorMin =  Math.floor(gotasPorMin * 0.05);
+                    gttsPorMin = gotasPorMin;
+                    document.querySelector("#gotasPorMin").innerText = gotasPorMin + " Gotas";
+                    document.querySelector("#mlPorMin").innerText = mlPorMin + " ML";
+                    console.log("Gotas Por Minuto : ", gotasPorMin);
+                    console.log("Ml Por Minuto : ", mlPorMin);
+                }
+                document.querySelector("#gotas").addEventListener("click", gota);
+            </script>
+        </div>
+    </body>
+</html>

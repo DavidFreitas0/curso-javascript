@@ -1,0 +1,21 @@
+h1{
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#samples{
+    display: table;
+    margin: 0 auto;
+    max-width: 440px;
+}
+
+button{
+    background: #ccc;
+    border: 1px solid #333;
+    width: 200px;
+    height: 70px;
+    margin: 10px;
+}
+button:hover{
+    background-color:slategray;
+}

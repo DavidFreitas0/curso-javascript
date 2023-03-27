@@ -1,0 +1,82 @@
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                color: rgb(0, 0, 0);
+                font-family: sans-serif;
+            }
+            body{
+                background-color: lavender;
+            }
+            .titulo {
+                display: flex;
+                justify-content: center;
+                margin: 0 auto;
+                margin-top: 4%;
+                margin-bottom: 1%;
+            }
+            .container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto;
+            } 
+            #data {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto;
+                margin-top: 2%;
+            } 
+            #hora {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto;
+            }
+            .botoes {
+                margin-top: 2%;
+            }
+            .botoes button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto;
+                margin-top: 3px;
+                padding: 3px;
+                height: 30%;
+                width: 20%;
+                border: 1px solid;
+                border-radius: 20px;
+                background-color: cornflowerblue;
+                color: white;
+            }
+            .informacoes {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto;
+            }
+            .nome {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto;
+                font-size: 25px;
+                font-weight: bold;
+            }
+            .consultorio{
+                display: flex;
+                align-items: center;
+                justify-content: center; 
+                margin: 0 auto;
+                margin-bottom: -1%;
+            }
+            #horario {
+                display: flex;
+                align-items: center;
+                justify-content: center; 
+                margin: 0 auto;
+                margin-top: 30px;
+                margin-bottom: -15px;
+            }
