@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 4%;
+  margin-bottom: 1%;
+  font-size: 150%;
+}
+
+.buttonP{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 3px;
+  padding: 3px;
+  height: 30%;
+  width: 20%;
+  border: 1px solid;
+  border-radius: 20px;
+  background-color: rgb(4, 160, 43);
+  color: white;
+}
+
+.buttonP:hover{
+  background-color: rgb(9, 255, 0);
+  transition: 500ms;
+}
+
+.buttonN{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 3px;
+  padding: 3px;
+  height: 30%;
+  width: 20%;
+  border: 1px solid;
+  border-radius: 20px;
+  background-color: rgb(255, 0, 0);
+  color: white;
+}
+
+.buttonN:hover{
+  background-color: rgb(146, 4, 4);
+  transition: 500ms;
+}
