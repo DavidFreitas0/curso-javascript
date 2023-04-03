@@ -2,18 +2,20 @@ const express = require('express');
 const mysql = require('mysql2');
 const app = express();
 app.use(express.json())
-const port = 3000;
+const port = 3001;
 
-// Desafio
-// Fazer todas as rotas do todo utilizando express
-
-// FUTURO: Arquivos de ambiente development.env, production.env,...
-// se quiser olhar o dotenv
 const connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
   password: 'vao359685',
   database: 'servidor_curso'
+});
+
+app.use((req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "*");
+  res.setHeader("Access-Control-Allow-Headers", "*");
+  req.next();
 });
 
 //TODO
